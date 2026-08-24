@@ -29,14 +29,17 @@
 - [x] Add GitHub Actions test workflow
 
 ## Milestone 3 — Survey UI
-- [ ] One question per screen
-- [ ] 1–7 keyboard shortcuts
-- [ ] Back navigation
-- [ ] Progress indicator
-- [ ] Mobile-first interaction
-- [ ] Local cache
-- [ ] Autosave
-- [ ] Resume
+- [x] One question per screen
+- [x] 1–7 keyboard shortcuts
+- [x] Back navigation
+- [x] Progress indicator
+- [x] Mobile-first interaction
+- [x] Local cache
+- [x] Autosave with local fallback
+- [x] Resume from last saved question
+- [x] Optional financial context can be skipped
+- [x] Final reflection supports 1,000 characters
+- [x] Reduced-motion and keyboard accessibility support
 
 ## Milestone 4 — Supabase
 - [ ] Create real session on start
