@@ -27,11 +27,26 @@ export function calculateScenarioSignals(
   };
 
   switch (answers.SCN1) {
+    case "A": bump("achievement", 15); break;
     case "B": bump("security", 35); break;
     case "C": bump("experience", 35); break;
     case "D": bump("achievement", 35); bump("building", 25); break;
     case "E": bump("freedom", 20); bump("security", 15); break;
     case "F": bump("security", 25); break;
+  }
+
+  switch (answers.SCN2) {
+    case "A": bump("security", 15); bump("achievement", -25); break;
+    case "B": bump("security", 10); bump("achievement", -15); break;
+    case "D": bump("achievement", 20); break;
+    case "E": bump("achievement", 35); break;
+  }
+
+  switch (answers.SCN3) {
+    case "A": bump("security", 30); break;
+    case "B": bump("security", 15); break;
+    case "C": bump("security", -15); break;
+    case "D": bump("security", -25); break;
   }
 
   switch (answers.SCN4) {
@@ -43,6 +58,7 @@ export function calculateScenarioSignals(
 
   switch (answers.SCN5) {
     case "A": bump("building", 30); bump("achievement", 15); break;
+    case "B": bump("achievement", 10); break;
     case "C": bump("experience", 20); break;
     case "D": bump("experience", 30); break;
     case "E": bump("experience", 20); break;
@@ -50,13 +66,25 @@ export function calculateScenarioSignals(
   }
 
   switch (answers.SCN6) {
+    case "A": bump("achievement", 10); break;
+    case "B": bump("experience", 10); break;
     case "C": bump("experience", 30); break;
     case "D": bump("freedom", 35); break;
     case "E": bump("achievement", 30); bump("building", 25); break;
     case "F": bump("security", 30); break;
   }
 
+  switch (answers.SCN7) {
+    case "A": bump("achievement", -20); break;
+    case "B": bump("achievement", 10); break;
+    case "C": bump("achievement", 30); break;
+    case "D": bump("freedom", 25); break;
+    case "E": bump("achievement", 35); break;
+  }
+
+  if (answers.SCN8 === "A") bump("achievement", 15);
   if (answers.SCN8 === "B") bump("freedom", 25);
+  if (answers.SCN8B === "A") bump("achievement", 20);
   if (answers.SCN8B === "B") bump("freedom", 30);
 
   return s;
