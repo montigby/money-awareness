@@ -11,19 +11,22 @@
 - [x] Initial unit tests
 
 ## Milestone 1 — Finish deterministic engine
-- [ ] Add exact scenario mappings from the approved spec
-- [ ] Add P08 Unreachable Number
-- [ ] Add P15 Goalpost Drift
+- [x] Add exact scenario mappings from the approved spec
+- [x] Add P08 Unreachable Number
+- [x] Add P15 Goalpost Drift
 - [ ] Add C04 only if supporting evidence rule is defined
-- [ ] Add validation for complete assessments
-- [ ] Add score rounding rules only at presentation layer
-- [ ] Add exhaustive boundary tests
+- [x] Add validation for complete assessments
+- [x] Add score rounding rules only at presentation layer
+- [ ] Add exhaustive boundary tests for every archetype/pattern/contradiction
 
 ## Milestone 2 — Synthetic profiles
-- [ ] Build 8 starter fixtures
+- [x] Build 8 starter fixtures
 - [ ] Expand to 20–30 profiles
-- [ ] Define expected result ranges
-- [ ] Review outputs manually
+- [x] Define expected result ranges
+- [x] Review outputs manually against deterministic formulas
+- [x] Add synthetic-profile regression tests
+- [x] Document validation in `docs/SYNTHETIC_VALIDATION.md`
+- [x] Add GitHub Actions test workflow
 
 ## Milestone 3 — Survey UI
 - [ ] One question per screen
