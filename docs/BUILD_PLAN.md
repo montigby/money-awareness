@@ -42,12 +42,17 @@
 - [x] Reduced-motion and keyboard accessibility support
 
 ## Milestone 4 — Supabase
-- [ ] Create real session on start
-- [ ] Upsert answers server-side
-- [ ] Complete-session validation
-- [ ] Persist deterministic score object
-- [ ] Add production RLS/security review
-- [ ] Add delete-results flow
+- [x] Create real session on start
+- [x] Upsert validated answers server-side
+- [x] Resume from server state across devices
+- [x] Reconcile device-only fallback answers back to server
+- [x] Complete-session validation from authoritative stored answers
+- [x] Persist deterministic score object with scoring/question versions
+- [x] Add production RLS/security review
+- [x] Revoke direct anon/authenticated table access; server-only service-role model
+- [x] Add cascading delete-results flow
+- [x] Apply and verify production database migration
+- [x] Run Supabase security advisor
 
 ## Milestone 5 — Deterministic results
 - [ ] Archetype header
