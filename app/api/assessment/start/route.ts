@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
+import { captureAnalyticsEvent } from "@/lib/analytics/server";
 
 export async function POST(request: Request) {
   const supabase = getSupabaseAdmin();
@@ -18,6 +19,11 @@ export async function POST(request: Request) {
     console.error("Failed to create assessment session", error);
     return NextResponse.json({ error: "Unable to start assessment." }, { status: 500 });
   }
+
+  await captureAnalyticsEvent({
+    event: "assessment_started",
+    distinctId: token,
+  });
 
   const origin = new URL(request.url).origin;
   return NextResponse.redirect(new URL(`/assessment/${token}`, origin), 303);
