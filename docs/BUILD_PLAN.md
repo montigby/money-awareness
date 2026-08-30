@@ -68,12 +68,17 @@
 - [x] No AI required
 
 ## Milestone 6 — AI narrative
-- [ ] Add compact model input
-- [ ] Add production OpenAI call
-- [ ] Require structured output
-- [ ] Validate with Zod
-- [ ] Retry once
-- [ ] Fall back to deterministic report
+- [x] Add compact model input without raw financial ranges or identifiers
+- [x] Add production OpenAI Responses API call
+- [x] Require strict JSON-schema structured output
+- [x] Validate every generated report with Zod
+- [x] Retry model generation once on failure
+- [x] Fall back to a schema-valid deterministic report
+- [x] Persist narrative with model and prompt version
+- [x] Allow completed assessments to regenerate narrative via API
+- [x] Render personalized synthesis, strength, tension, stress response, reflection, and final question
+- [x] Preserve deterministic scores/pattern eligibility as source of truth
+- [x] Add Stage 6 regression/privacy tests
 
 ## Milestone 7 — Distribution
 - [ ] Email result link
