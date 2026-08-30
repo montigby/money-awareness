@@ -3,6 +3,7 @@ import type { AssessmentAnswers } from "@/types/assessment";
 import { scoreAssessment, validateAssessment } from "@/lib/assessment/scoring";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
 import { generateAndPersistReport } from "@/lib/ai/reportService";
+import { captureAnalyticsEvent } from "@/lib/analytics/server";
 
 const QUESTION_VERSION = "1.0.0";
 
@@ -95,10 +96,18 @@ export async function POST(
       reportGenerated = true;
       usedFallback = generated.usedFallback;
     } catch (reportError) {
-      // The deterministic Stage 5 result remains available even if report
-      // persistence itself fails. A later POST /api/report/generate can retry.
       console.error("Post-completion report generation failed", reportError);
     }
+
+    await captureAnalyticsEvent({
+      event: "assessment_completed",
+      distinctId: session,
+      properties: {
+        report_generated: reportGenerated,
+        used_fallback: usedFallback,
+        primary_archetype: result.archetypes.primary?.name ?? "none",
+      },
+    });
 
     return NextResponse.json({
       ok: true,
