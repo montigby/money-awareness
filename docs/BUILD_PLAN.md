@@ -55,13 +55,17 @@
 - [x] Run Supabase security advisor
 
 ## Milestone 5 — Deterministic results
-- [ ] Archetype header
-- [ ] Dimension bars
-- [ ] Pattern cards
-- [ ] Security-gap section
-- [ ] Contradiction section
-- [ ] Reflection section
-- [ ] No AI required
+- [x] Archetype header with primary/secondary interpretation
+- [x] Six dimension bars with expandable strength/tradeoff detail
+- [x] Top-three deterministic pattern cards
+- [x] Security-gap section when absolute gap >= 25
+- [x] Medium/high-confidence contradiction section
+- [x] Final reflection section
+- [x] Deterministic closing reflection question
+- [x] Stored scoring/question version display
+- [x] Responsive results design
+- [x] Results-copy regression tests
+- [x] No AI required
 
 ## Milestone 6 — AI narrative
 - [ ] Add compact model input
