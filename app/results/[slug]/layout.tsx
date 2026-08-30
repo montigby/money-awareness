@@ -1,4 +1,5 @@
 import "./stage6.module.css";
+import "./stage7.css";
 import { ResultsActions } from "@/components/ResultsActions";
 
 export default async function ResultsLayout({
