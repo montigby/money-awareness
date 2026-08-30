@@ -42,3 +42,90 @@ export const ReportSchema = z.object({
 });
 
 export type GeneratedReport = z.infer<typeof ReportSchema>;
+
+export const REPORT_JSON_SCHEMA = {
+  type: "object",
+  additionalProperties: false,
+  required: [
+    "headline",
+    "profile_summary",
+    "money_means",
+    "greatest_strength",
+    "primary_tension",
+    "patterns",
+    "financial_reality",
+    "stress_response",
+    "contradiction",
+    "reflection_response",
+    "question_to_consider",
+  ],
+  properties: {
+    headline: { type: "string" },
+    profile_summary: { type: "string" },
+    money_means: {
+      type: "object",
+      additionalProperties: false,
+      required: ["primary", "secondary", "interpretation"],
+      properties: {
+        primary: { type: "string" },
+        secondary: { type: "string" },
+        interpretation: { type: "string" },
+      },
+    },
+    greatest_strength: {
+      type: "object",
+      additionalProperties: false,
+      required: ["title", "body"],
+      properties: { title: { type: "string" }, body: { type: "string" } },
+    },
+    primary_tension: {
+      type: "object",
+      additionalProperties: false,
+      required: ["title", "body"],
+      properties: { title: { type: "string" }, body: { type: "string" } },
+    },
+    patterns: {
+      type: "array",
+      maxItems: 3,
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["name", "body"],
+        properties: { name: { type: "string" }, body: { type: "string" } },
+      },
+    },
+    financial_reality: {
+      type: "object",
+      additionalProperties: false,
+      required: ["show", "headline", "body"],
+      properties: {
+        show: { type: "boolean" },
+        headline: { type: "string" },
+        body: { type: "string" },
+      },
+    },
+    stress_response: {
+      type: "object",
+      additionalProperties: false,
+      required: ["title", "body"],
+      properties: { title: { type: "string" }, body: { type: "string" } },
+    },
+    contradiction: {
+      type: "object",
+      additionalProperties: false,
+      required: ["show", "title", "body"],
+      properties: {
+        show: { type: "boolean" },
+        title: { type: "string" },
+        body: { type: "string" },
+      },
+    },
+    reflection_response: {
+      type: "object",
+      additionalProperties: false,
+      required: ["show", "body"],
+      properties: { show: { type: "boolean" }, body: { type: "string" } },
+    },
+    question_to_consider: { type: "string" },
+  },
+} as const;
