@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import type { AssessmentAnswers } from "@/types/assessment";
 import { scoreAssessment, validateAssessment } from "@/lib/assessment/scoring";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
+import { generateAndPersistReport } from "@/lib/ai/reportService";
 
 const QUESTION_VERSION = "1.0.0";
 
@@ -82,7 +83,29 @@ export async function POST(
 
     if (completeError) throw completeError;
 
-    return NextResponse.json({ ok: true, slug: session });
+    let reportGenerated = false;
+    let usedFallback = false;
+    try {
+      const generated = await generateAndPersistReport({
+        sessionId: sessionRow.id,
+        slug: session,
+        result,
+        answers,
+      });
+      reportGenerated = true;
+      usedFallback = generated.usedFallback;
+    } catch (reportError) {
+      // The deterministic Stage 5 result remains available even if report
+      // persistence itself fails. A later POST /api/report/generate can retry.
+      console.error("Post-completion report generation failed", reportError);
+    }
+
+    return NextResponse.json({
+      ok: true,
+      slug: session,
+      reportGenerated,
+      usedFallback,
+    });
   } catch (error) {
     console.error("Assessment scoring failed", error);
     await supabase
