@@ -81,10 +81,17 @@
 - [x] Add Stage 6 regression/privacy tests
 
 ## Milestone 7 — Distribution
-- [ ] Email result link
-- [ ] Privacy-safe share card
-- [ ] Accuracy feedback
-- [ ] Analytics events
+- [x] Email private result links through Resend with idempotent delivery
+- [x] Store email only after successful delivery
+- [x] Create separate public share tokens
+- [x] Privacy-safe public share card excludes financial context, reflection, scores, and private report URL
+- [x] Native share with clipboard fallback
+- [x] 1–5 accuracy feedback with optional written response
+- [x] Persist one feedback record per report
+- [x] Track assessment starts and completions
+- [x] Track results views, email, sharing, and feedback events
+- [x] Keep analytics payloads free of raw financial context and reflection text
+- [x] Apply Stage 7 Supabase migration
 
 ## Milestone 8 — Deployment
 - [ ] Push GitHub main
