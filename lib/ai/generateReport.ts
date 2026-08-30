@@ -107,7 +107,7 @@ async function callModel(result: AssessmentResult, answers: AssessmentAnswers) {
         type: "json_schema",
         name: "money_self_awareness_report",
         strict: true,
-        schema: REPORT_JSON_SCHEMA,
+        schema: REPORT_JSON_SCHEMA as unknown as Record<string, unknown>,
       },
     },
   });
