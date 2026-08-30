@@ -94,11 +94,17 @@
 - [x] Apply Stage 7 Supabase migration
 
 ## Milestone 8 — Deployment
-- [ ] Push GitHub main
-- [ ] Connect deployment platform
-- [ ] Configure secrets
-- [ ] Smoke-test production
+- [x] Push deployment-ready code to GitHub main
+- [x] Add Replit `.replit` build/run configuration
+- [x] Bind production server to `0.0.0.0` and Replit `PORT`
+- [x] Add lightweight `/api/health` endpoint
+- [x] Add deployment/secrets/smoke-test runbook
+- [ ] Import/connect `montigby/money-awareness` in Replit
+- [ ] Configure production secrets in Replit Publishing
+- [ ] Publish as Autoscale deployment
+- [ ] Smoke-test production end-to-end
 - [ ] Add custom domain
+- [ ] Update `NEXT_PUBLIC_SITE_URL` to final domain and re-test email/share links
 
 ## Milestone 9 — Human testing
 - [ ] 20–30 initial testers
