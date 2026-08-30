@@ -14,7 +14,10 @@ const ALLOWED_EVENTS = [
 const BodySchema = z.object({
   event: z.enum(ALLOWED_EVENTS),
   distinctId: z.string().uuid(),
-  properties: z.record(z.union([z.string(), z.number(), z.boolean(), z.null()])).optional(),
+  properties: z.record(
+    z.string(),
+    z.union([z.string(), z.number(), z.boolean(), z.null()])
+  ).optional(),
 });
 
 export async function POST(request: Request) {
